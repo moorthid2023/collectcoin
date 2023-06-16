@@ -1,4 +1,4 @@
-export default colCheck;
+// export default colCheck;
 
 function colCheck(shapeA, shapeB) {
     // get the vectors to check against
