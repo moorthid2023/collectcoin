@@ -411,18 +411,40 @@ const btnup = document.getElementById("up");
 const btnr = document.getElementById("right");
 const btnl = document.getElementById("left");
 btnup.addEventListener("touchstart",jumpUp);
+btnup.addEventListener("touchend",jumpUpelse);
 btnl.addEventListener("touchstart",goLeft);
+btnl.addEventListener("touchend",goLeftelse);
 btnr.addEventListener("touchstart",goRight);
+btnr.addEventListener("touchend",goRightelse);
 function jumpUp(){
-    console.log("up");
+    keys["ArrowUp"] = true;
+    left=true;
+    console.log("up start",keys);
+};
+function jumpUpelse(){
+    keys["ArrowUp"] = false;
+    left=true;
+    console.log("up end",keys);
 };
 function goLeft(){
-    console.log("left");
+    keys["ArrowLeft"] = true;
+   
+    console.log("left start");
 };
+function goLeftelse(){
+    keys["ArrowLeft"] = false;
+  
+    console.log("left end");
+}
 function goRight(){
-    console.log("right");
+    keys["ArrowRight"] = true;
+    
+    console.log("right start");
 };
-
+function goRightelse(){
+    keys["ArrowRight"] = false;
+    console.log("right end");
+}
 
 //
 function resetGame(){
