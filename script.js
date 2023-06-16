@@ -42,6 +42,7 @@ class Platform {
         }else if(player.x>500&&keys["ArrowRight"]){
             this.x +=camera.x;}
             ctx.fillStyle = this.color;
+        
         ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.strokeRect(this.x,this.y,this.width,this.height);
         // ctx.drawImage(createImage(platformImage),this.x,this.y,50,50);
@@ -292,9 +293,7 @@ function update() {
     //Render platform
   
     for (let i = 0; i < platforms.length; i++) {
-        // for (let j =0; j <platforms[i].length; j++) {
-        for (let j =0; j <15; j++) {
-       
+        for (let j =0; j <platforms[i].length; j++) {       
 
             if (platforms[i][j] == 1) {
                 
@@ -417,37 +416,37 @@ btnl.addEventListener("touchstart",goLeft);
 btnl.addEventListener("touchend",goLeftelse);
 btnr.addEventListener("touchstart",goRight);
 btnr.addEventListener("touchend",goRightelse);
-function jumpUp(){
+function jumpUp(event){
     event.preventDefault();
     keys["ArrowUp"] = true;
     left=true;
     console.log("up start",keys);
 };
-function jumpUpelse(){
+function jumpUpelse(event){
     event.preventDefault();
     keys["ArrowUp"] = false;
     left=true;
     console.log("up end",keys);
 };
-function goLeft(){
+function goLeft(event){
     event.preventDefault();
     keys["ArrowLeft"] = true;
    
     console.log("left start");
 };
-function goLeftelse(){
+function goLeftelse(event){
     event.preventDefault();
     keys["ArrowLeft"] = false;
   
     console.log("left end");
 }
-function goRight(){
+function goRight(event){
     event.preventDefault();
     keys["ArrowRight"] = true;
     
     console.log("right start");
 };
-function goRightelse(){
+function goRightelse(event){
     event.preventDefault();
     keys["ArrowRight"] = false;
     console.log("right end");
