@@ -417,31 +417,37 @@ btnl.addEventListener("touchend",goLeftelse);
 btnr.addEventListener("touchstart",goRight);
 btnr.addEventListener("touchend",goRightelse);
 function jumpUp(){
+    event.preventDefault();
     keys["ArrowUp"] = true;
     left=true;
     console.log("up start",keys);
 };
 function jumpUpelse(){
+    event.preventDefault();
     keys["ArrowUp"] = false;
     left=true;
     console.log("up end",keys);
 };
 function goLeft(){
+    event.preventDefault();
     keys["ArrowLeft"] = true;
    
     console.log("left start");
 };
 function goLeftelse(){
+    event.preventDefault();
     keys["ArrowLeft"] = false;
   
     console.log("left end");
 }
 function goRight(){
+    event.preventDefault();
     keys["ArrowRight"] = true;
     
     console.log("right start");
 };
 function goRightelse(){
+    event.preventDefault();
     keys["ArrowRight"] = false;
     console.log("right end");
 }
