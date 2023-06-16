@@ -219,7 +219,7 @@ var platFormBack =15;
 //
 
 //
-var jumpSound = new Audio("./sounds/jump.mp3");
+var jumpSound = new Audio("./sounds/Jump.mp3");
 
 var coinCollectSound = new Audio("./sounds/coincollect.mp3");
 var keys = [],
