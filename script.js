@@ -292,7 +292,8 @@ function update() {
     //Render platform
   
     for (let i = 0; i < platforms.length; i++) {
-        for (let j =0; j <platforms[i].length; j++) {
+        // for (let j =0; j <platforms[i].length; j++) {
+        for (let j =0; j <15; j++) {
        
 
             if (platforms[i][j] == 1) {
