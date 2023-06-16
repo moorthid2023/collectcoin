@@ -1,5 +1,5 @@
 
-import colCheck from "./coCheck.js";
+// import colCheck from "./coCheck.js";
 
 //image creation
     const marioPng ="./img/p2idle.png";
