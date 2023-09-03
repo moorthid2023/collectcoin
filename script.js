@@ -363,9 +363,12 @@ function update() {
     //            }
                
     //           }               
-        }
-    //render ends here
-    //test render
+    //     }
+    
+  
+    // }
+      //render ends here
+      //test render
    
 
     const visiblePlatforms = platforms.slice(
@@ -381,9 +384,6 @@ function update() {
     }
     });
     //test render ends here
-    
-    }
-
 
 
 
