@@ -381,6 +381,18 @@ visiblePlatforms.forEach((row, i) => {
     if (tile === 1) {
       const platform = new Platform(j * 50, i * 50);
       platform.draw();
+         var dir = colCheck(player, platform);
+                //after collision
+                if (dir == "b") {
+                    player.velY = 0;
+                    player.grounded = true;
+                    player.jumping = false;
+                } else if (dir == "r" || dir == "l") {
+                    player.velX = 0;
+                    player.jumping = false;
+                } else if (dir == "t") {
+                    player.velY *= -1;
+                }
     }
   });
 });
