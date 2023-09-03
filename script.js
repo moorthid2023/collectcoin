@@ -371,18 +371,19 @@ function update() {
       //test render
    
 
-    const visiblePlatforms = platforms.slice(
-    (player.x - screenWidth / 2) / platforms.length,
-    (player.x + screenWidth / 2) / platforms.length
-    );
+   const visiblePlatforms = platforms.slice(
+  (player.x - screenWidth / 2) / platforms.length,
+  (player.x + screenWidth / 2) / platforms.length
+);
 
-    platforms.forEach((platform) => {
-    if (platform === 1) {
-        // Do something with the platform
-         var platform = new Platform(j * 50, i * 50);
-                platform.draw();
+visiblePlatforms.forEach((row, i) => {
+  row.forEach((tile, j) => {
+    if (tile === 1) {
+      const platform = new Platform(j * 50, i * 50);
+      platform.draw();
     }
-    });
+  });
+});
     //test render ends here
 
 
