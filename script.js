@@ -204,7 +204,10 @@ var ctx = canvas.getContext("2d"),
 
 canvas.width = width;
 canvas.height = height;
-
+//
+ const screenWidth = window.innerWidth;
+ const screenHeight = window.innerHeight;
+//
 var camera = {
     x: 0,
     y: 0,
@@ -292,75 +295,93 @@ function update() {
     
     //Render platform
   
-    for (let i = 0; i < platforms.length; i++) {
-        for (let j =0; j <platforms[i].length; j++) {       
+    // for (let i = 0; i < platforms.length; i++) {
+    //     for (let j =0; j <platforms[i].length; j++) {       
 
-            if (platforms[i][j] == 1) {
+    //         if (platforms[i][j] == 1) {
                 
-                var platform = new Platform(j * 50, i * 50);
-                platform.draw();
-                // ctx.drawImage(createImage(platformImage),j*50,i*50,50,50);
-                var dir = colCheck(player, platform);
-                //after collision
-                if (dir == "b") {
-                    player.velY = 0;
-                    player.grounded = true;
-                    player.jumping = false;
-                } else if (dir == "r" || dir == "l") {
-                    player.velX = 0;
-                    player.jumping = false;
-                } else if (dir == "t") {
-                    player.velY *= -1;
-                }
-               //
-               var ene = colCheck(enemy,platform);
-               if(ene =="l"||ene =="r"){
-                dx= -dx;
+    //             var platform = new Platform(j * 50, i * 50);
+    //             platform.draw();
+    //             // ctx.drawImage(createImage(platformImage),j*50,i*50,50,50);
+    //             var dir = colCheck(player, platform);
+    //             //after collision
+    //             if (dir == "b") {
+    //                 player.velY = 0;
+    //                 player.grounded = true;
+    //                 player.jumping = false;
+    //             } else if (dir == "r" || dir == "l") {
+    //                 player.velX = 0;
+    //                 player.jumping = false;
+    //             } else if (dir == "t") {
+    //                 player.velY *= -1;
+    //             }
+    //            //
+    //            var ene = colCheck(enemy,platform);
+    //            if(ene =="l"||ene =="r"){
+    //             dx= -dx;
                 
-            }
+    //         }
        
-            }
-            if (platforms[i][j] == 2) {
+    //         }
+    //         if (platforms[i][j] == 2) {
                
-                //brick object creation
-                var brick = new Brick(j * 50, i * 50);
-                //camera view
+    //             //brick object creation
+    //             var brick = new Brick(j * 50, i * 50);
+    //             //camera view
                 
                 
-                //brick creation
-                brick.draw();
+    //             //brick creation
+    //             brick.draw();
                 
-                //collision detection
-                var col = colCheck(player, brick);
-                //after collision
-                if (col == "b") {
-                    player.velY = 0;
-                    player.grounded = true;
-                    player.jumping = false;
-                } else if (col == "r" || col == "l") {
-                    player.velX = 0;
-                    player.jumping = false;
-                } else if (col == "t") {
-                    player.velY *= -1;
-                }
-              } 
-              //coins
-              if(platforms[i][j]==3){
-                ctx.fillStyle="yellow";
-                var coins = new Coins(j*50,i*50);
-                // console.log(coins.x, "coins.x");
-                coins.draw();
-                var coinCol= colCheck(player,coins);
+    //             //collision detection
+    //             var col = colCheck(player, brick);
+    //             //after collision
+    //             if (col == "b") {
+    //                 player.velY = 0;
+    //                 player.grounded = true;
+    //                 player.jumping = false;
+    //             } else if (col == "r" || col == "l") {
+    //                 player.velX = 0;
+    //                 player.jumping = false;
+    //             } else if (col == "t") {
+    //                 player.velY *= -1;
+    //             }
+    //           } 
+    //           //coins
+    //           if(platforms[i][j]==3){
+    //             ctx.fillStyle="yellow";
+    //             var coins = new Coins(j*50,i*50);
+    //             // console.log(coins.x, "coins.x");
+    //             coins.draw();
+    //             var coinCol= colCheck(player,coins);
               
-               if(coinCol=="r"||coinCol=="l"||coinCol=="t"||coinCol=="b"){
-                platforms[i][j]=0;
-                //coin collects sound
-                coinCollectSound.play();
-                console.log("coin collected ");
-               }
+    //            if(coinCol=="r"||coinCol=="l"||coinCol=="t"||coinCol=="b"){
+    //             platforms[i][j]=0;
+    //             //coin collects sound
+    //             coinCollectSound.play();
+    //             console.log("coin collected ");
+    //            }
                
-              }               
-        }
+    //           }               
+    //     }
+    //render ends here
+    //test render
+   
+
+    const visiblePlatforms = platforms.slice(
+    (player.x - screenWidth / 2) / platforms.length,
+    (player.x + screenWidth / 2) / platforms.length
+    );
+
+    platforms.forEach((platform) => {
+    if (platform === 1) {
+        // Do something with the platform
+         var platform = new Platform(j * 50, i * 50);
+                platform.draw();
+    }
+    });
+    //test render ends here
+    
     }
 
 
